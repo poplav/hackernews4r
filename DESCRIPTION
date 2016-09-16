@@ -1,8 +1,9 @@
 Package: hackernews4r
-Title: hackernews4r
-Version: 0.0.0.9000
+Title: HackerNews API Client in R
+Version: 0.1.0
 Authors@R: person("Michael", "Poplavski", email = "mikepop77@gmail.com", role = c("aut", "cre"))
-Description: HackerNews API Client in R.
+Description: Utilising the Hacker News API (see <https://github.com/HackerNews/API>
+                 for more information), which can be used to get stories and list top stories.
 Depends:
     R (>= 3.2.2)
 Suggests:
