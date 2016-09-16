@@ -2,10 +2,13 @@ Package: hackernews4r
 Title: hackernews4r
 Version: 0.0.0.9000
 Authors@R: person("Michael", "Poplavski", email = "mikepop77@gmail.com", role = c("aut", "cre"))
-Description: HackerNews API Client in R
+Description: HackerNews API Client in R.
 Depends:
     R (>= 3.2.2)
-License: MIT
+Suggests:
+    testthat,
+    roxygen2
+License: MIT + file LICENSE
 Encoding: UTF-8
 LazyData: true
 RoxygenNote: 5.0.1

@@ -11,7 +11,7 @@ For detailed requirements and install instructions see [todo_update_installation
 
 ## Installation
 
-We will soon submit the IRkernel package to CRAN. Until then, you can install it via the `devtools` package:
+We will soon submit the hackernews4r package to CRAN. Until then, you can install it via the `devtools` package:
 
 ```R
 install.packages(c('devtools'))

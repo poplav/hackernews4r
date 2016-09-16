@@ -6,4 +6,4 @@ This package is new on CRAN. It contains a hacker news client.
 
 ## R CMD check results
 
-There are no ERRORS and 1 WARNINGs and 1 NOTEs.
+There are no ERRORS and no WARNINGS and no NOTES.
