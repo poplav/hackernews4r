@@ -4,7 +4,7 @@
 \alias{get_top_stories}
 \title{get_top_stories}
 \usage{
-get_top_stories(limit = 10, pretty_print = TRUE)
+get_top_stories(limit = 10, pretty_print = FALSE)
 }
 \arguments{
 \item{limit}{The top limit stories to return}
@@ -16,6 +16,6 @@ This function returns the top stories from hacker news
 }
 \examples{
 get_top_stories()
-get_top_stories(limit = 5, pretty_print = FALSE)
+get_top_stories(limit = 5, pretty_print = TRUE)
 }
 

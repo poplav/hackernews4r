@@ -4,7 +4,7 @@
 \alias{get_story}
 \title{get_story}
 \usage{
-get_story(id, pretty_print = TRUE)
+get_story(id, pretty_print = FALSE)
 }
 \arguments{
 \item{id}{The id of the story to query}
@@ -16,6 +16,6 @@ This function returns the story given it's story id
 }
 \examples{
 get_story(12508356)
-get_story(12508356, pretty_print = FALSE)
+get_story(12508356, pretty_print = TRUE)
 }
 
