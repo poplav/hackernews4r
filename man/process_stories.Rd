@@ -9,9 +9,9 @@ process_stories(stories, pretty_print)
 \arguments{
 \item{stories}{The hacker news stories to process}
 
-\item{pretty_print}{If true print to the terminal and return NULL else return the json structure}
+\item{pretty_print}{If true return list of serialized stories else return the json structure}
 }
 \description{
-This function processes the stories by either pretty_printing or simply returning them
+This function processes the stories by either returning the serialized stories or original json structure
 }
 

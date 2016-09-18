@@ -9,7 +9,7 @@ get_top_stories(limit = 10, pretty_print = FALSE)
 \arguments{
 \item{limit}{The top limit stories to return}
 
-\item{pretty_print}{If true print to the terminal and return NULL else return the json structure}
+\item{pretty_print}{If true return list of serialized stories else return the json structure}
 }
 \description{
 This function returns the top stories from hacker news
