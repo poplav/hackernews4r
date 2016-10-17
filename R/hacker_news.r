@@ -1,5 +1,21 @@
 base_url <- "https://hacker-news.firebaseio.com/v0"
 
+get_item_ids_for_top_stories<-function(filename="/topstories.json",limit=10){
+  fromJSON(paste(base_url, filename, sep=""))[1:limit]
+}
+
+get_item_ids_for_new_stories<-function(filename="/newstories.json",limit=10){
+  `fromJSON(paste(base_url, filename, sep=""))[1:limit]
+}
+
+get_item_ids_for_ask_stories<-function(filename="/askstories.json",limit=10){
+  `fromJSON(paste(base_url, filename, sep=""))[1:limit]
+}
+
+get_item_ids_for_show_stories<-function(filename="/showstories.json",limit=10){
+  `fromJSON(paste(base_url, filename, sep=""))[1:limit]
+}
+
 #' get_top_stories
 #'
 #' This function returns the top stories from hacker news
@@ -12,14 +28,38 @@ base_url <- "https://hacker-news.firebaseio.com/v0"
 #' get_top_stories(limit = 5, pretty_print = TRUE)
 #' @importFrom jsonlite fromJSON
 get_top_stories <- function(limit = 10, pretty_print = FALSE) {
-    top_stories_ids <- fromJSON(paste(base_url, "/topstories.json", sep=""))
-    top_stories_ids <- top_stories_ids[1:limit]
-    top_stories <- lapply(top_stories_ids, function(id) {
-        story_url <- paste(base_url, "/item/", id, ".json", sep="")
-        fromJSON(story_url)
-    })
-    process_stories(top_stories, pretty_print)
+  top_stories <- lapply(get_item_ids_for_top_stories(), function(id) {
+    story_url <- paste(base_url, "/item/", id, ".json", sep="")
+    fromJSON(story_url)
+  })
+  process_stories(top_stories, pretty_print)
 }
+
+get_new_stories <- function(limit = 10, pretty_print = FALSE) {
+  new_stories <- lapply(get_item_ids_for_new_stories(), function(id) {
+    story_url <- paste(base_url, "/item/", id, ".json", sep="")
+    fromJSON(story_url)
+  })
+  process_stories(top_stories, pretty_print)
+}
+
+get_ask_stories <- function(limit = 10, pretty_print = FALSE) {
+  ask_stories <- lapply(get_item_ids_for_ask_stories(), function(id) {
+    story_url <- paste(base_url, "/item/", id, ".json", sep="")
+    fromJSON(story_url)
+  })
+  process_stories(top_stories, pretty_print)
+}
+
+get_show_stories <- function(limit = 10, pretty_print = FALSE) {
+  new_stories <- lapply(get_item_ids_for_show_stories(), function(id) {
+    story_url <- paste(base_url, "/item/", id, ".json", sep="")
+    fromJSON(story_url)
+  })
+  process_stories(top_stories, pretty_print)
+}
+
+
 
 #' get_story
 #'
@@ -33,11 +73,11 @@ get_top_stories <- function(limit = 10, pretty_print = FALSE) {
 #' get_story(12508356, pretty_print = TRUE)
 #' @importFrom jsonlite fromJSON
 get_story <- function(id, pretty_print = FALSE) {
-    story <- {
-        story_url <- paste(base_url, "/item/", id, ".json", sep="")
-        fromJSON(story_url)
-    }
-    process_stories(list(story), pretty_print)
+  story <- {
+    story_url <- paste(base_url, "/item/", id, ".json", sep="")
+    fromJSON(story_url)
+  }
+  process_stories(list(story), pretty_print)
 }
 
 #' process_stories
@@ -47,13 +87,13 @@ get_story <- function(id, pretty_print = FALSE) {
 #' @param stories  The hacker news stories to process
 #' @param pretty_print  If true return list of serialized stories else return the json structure
 process_stories <- function(stories, pretty_print) {
-    if(pretty_print) {
-        lapply(stories, function (story) {
-            serialize_story(story)
-        })
-    } else {
-        stories
-    }
+  if(pretty_print) {
+    lapply(stories, function (story) {
+      serialize_story(story)
+    })
+  } else {
+    stories
+  }
 }
 
 #' serialize_story
@@ -62,5 +102,5 @@ process_stories <- function(stories, pretty_print) {
 #'
 #' @param story  The story to serialize
 serialize_story <- function(story) {
-    paste("*", story$title, "-", story$url)
+  paste("*", story$title, "-", story$url)
 }
