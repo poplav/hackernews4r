@@ -40,7 +40,7 @@ get_new_stories <- function(limit = 10, pretty_print = FALSE) {
     story_url <- paste(base_url, "/item/", id, ".json", sep="")
     fromJSON(story_url)
   })
-  process_stories(top_stories, pretty_print)
+  process_stories(new_stories, pretty_print)
 }
 
 get_ask_stories <- function(limit = 10, pretty_print = FALSE) {
@@ -48,7 +48,7 @@ get_ask_stories <- function(limit = 10, pretty_print = FALSE) {
     story_url <- paste(base_url, "/item/", id, ".json", sep="")
     fromJSON(story_url)
   })
-  process_stories(top_stories, pretty_print)
+  process_stories(ask_stories, pretty_print)
 }
 
 get_show_stories <- function(limit = 10, pretty_print = FALSE) {
@@ -56,7 +56,7 @@ get_show_stories <- function(limit = 10, pretty_print = FALSE) {
     story_url <- paste(base_url, "/item/", id, ".json", sep="")
     fromJSON(story_url)
   })
-  process_stories(top_stories, pretty_print)
+  process_stories(show_stories, pretty_print)
 }
 
 
