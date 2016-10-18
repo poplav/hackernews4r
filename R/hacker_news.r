@@ -5,15 +5,15 @@ get_item_ids_for_top_stories<-function(filename="/topstories.json",limit=10){
 }
 
 get_item_ids_for_new_stories<-function(filename="/newstories.json",limit=10){
-  `fromJSON(paste(base_url, filename, sep=""))[1:limit]
+  fromJSON(paste(base_url, filename, sep=""))[1:limit]
 }
 
 get_item_ids_for_ask_stories<-function(filename="/askstories.json",limit=10){
-  `fromJSON(paste(base_url, filename, sep=""))[1:limit]
+  fromJSON(paste(base_url, filename, sep=""))[1:limit]
 }
 
 get_item_ids_for_show_stories<-function(filename="/showstories.json",limit=10){
-  `fromJSON(paste(base_url, filename, sep=""))[1:limit]
+  fromJSON(paste(base_url, filename, sep=""))[1:limit]
 }
 
 #' get_top_stories
