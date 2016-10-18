@@ -12,9 +12,9 @@ get_item_ids_for_stories<-function(filename,limit=10){
 #' @export
 #' @examples
 #' get_stories()
-#' get_stories(limit = 10, pretty_print = TRUE)
+#' get_stories(type = "top",limit = 10, pretty_print = TRUE)
 #' @importFrom jsonlite fromJSON
-get_stories <- function(type,limit = 10, pretty_print = FALSE) {
+get_stories <- function(type = "top",limit = 10, pretty_print = FALSE) {
   if(type=="top")
     filename="/topstories.json"
   else if(type=="new")
