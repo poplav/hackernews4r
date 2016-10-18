@@ -1,22 +1,9 @@
 base_url <- "https://hacker-news.firebaseio.com/v0"
 
-get_item_ids_for_top_stories<-function(filename="/topstories.json",limit=10){
+get_item_ids_for_stories<-function(filename,limit=10){
   fromJSON(paste(base_url, filename, sep=""))[1:limit]
 }
 
-get_item_ids_for_new_stories<-function(filename="/newstories.json",limit=10){
-  fromJSON(paste(base_url, filename, sep=""))[1:limit]
-}
-
-get_item_ids_for_ask_stories<-function(filename="/askstories.json",limit=10){
-  fromJSON(paste(base_url, filename, sep=""))[1:limit]
-}
-
-get_item_ids_for_show_stories<-function(filename="/showstories.json",limit=10){
-  fromJSON(paste(base_url, filename, sep=""))[1:limit]
-}
-
-#' get_top_stories
 #'
 #' This function returns the top stories from hacker news
 #'
@@ -24,42 +11,24 @@ get_item_ids_for_show_stories<-function(filename="/showstories.json",limit=10){
 #' @param pretty_print  If true return list of serialized stories else return the json structure
 #' @export
 #' @examples
-#' get_top_stories()
-#' get_top_stories(limit = 5, pretty_print = TRUE)
+#' get_stories()
+#' get_stories(limit = 10, pretty_print = TRUE)
 #' @importFrom jsonlite fromJSON
-get_top_stories <- function(limit = 10, pretty_print = FALSE) {
-  top_stories <- lapply(get_item_ids_for_top_stories(), function(id) {
+get_stories <- function(type,limit = 10, pretty_print = FALSE) {
+  if(type=="top")
+    filename="/topstories.json"
+  else if(type=="new")
+    filename="/newstories.json"
+  else if(type=="ask")
+    filename="/askstories.json"
+  else
+    filename="/showstories.json"
+  stories <- lapply(get_item_ids_for_stories(filename,limit), function(id) {
     story_url <- paste(base_url, "/item/", id, ".json", sep="")
     fromJSON(story_url)
   })
-  process_stories(top_stories, pretty_print)
+  process_stories(stories, pretty_print)
 }
-
-get_new_stories <- function(limit = 10, pretty_print = FALSE) {
-  new_stories <- lapply(get_item_ids_for_new_stories(), function(id) {
-    story_url <- paste(base_url, "/item/", id, ".json", sep="")
-    fromJSON(story_url)
-  })
-  process_stories(new_stories, pretty_print)
-}
-
-get_ask_stories <- function(limit = 10, pretty_print = FALSE) {
-  ask_stories <- lapply(get_item_ids_for_ask_stories(), function(id) {
-    story_url <- paste(base_url, "/item/", id, ".json", sep="")
-    fromJSON(story_url)
-  })
-  process_stories(ask_stories, pretty_print)
-}
-
-get_show_stories <- function(limit = 10, pretty_print = FALSE) {
-  new_stories <- lapply(get_item_ids_for_show_stories(), function(id) {
-    story_url <- paste(base_url, "/item/", id, ".json", sep="")
-    fromJSON(story_url)
-  })
-  process_stories(show_stories, pretty_print)
-}
-
-
 
 #' get_story
 #'
