@@ -26,9 +26,9 @@ devtools::install_github('poplav/hackernews4r')
 ```R
 library(hackernews4r)
 # get top 10 stories and return their original json structure
-get_top_stories()
+get_stories()
 # get top 5 stories and pretty print them to console
-get_top_stories(limit = 5, pretty_print = TRUE)
+get_stories(type = "top", limit = 5, pretty_print = TRUE)
 # get story by id and return their original json structure
 get_story(12508356)
 # get story by id and pretty print them to console
