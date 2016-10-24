@@ -7,6 +7,8 @@
 get_stories(type = "top", limit = 10, pretty_print = FALSE)
 }
 \arguments{
+\item{type}{The type of stories to get, defaults to top stories}
+
 \item{limit}{The top limit stories to return}
 
 \item{pretty_print}{If true return list of serialized stories else return the json structure}

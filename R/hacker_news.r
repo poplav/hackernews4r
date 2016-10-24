@@ -7,6 +7,7 @@ get_item_ids_for_stories<-function(filename,limit=10){
 #'
 #' This function returns the top stories from hacker news
 #'
+#' @param type  The type of stories to get, defaults to top stories
 #' @param limit  The top limit stories to return
 #' @param pretty_print  If true return list of serialized stories else return the json structure
 #' @export
