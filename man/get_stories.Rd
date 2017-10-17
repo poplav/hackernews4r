@@ -20,4 +20,3 @@ This function returns the top stories from hacker news
 get_stories()
 get_stories(type = "top",limit = 10, pretty_print = TRUE)
 }
-

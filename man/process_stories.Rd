@@ -14,4 +14,3 @@ process_stories(stories, pretty_print)
 \description{
 This function processes the stories by either returning the serialized stories or original json structure
 }
-
