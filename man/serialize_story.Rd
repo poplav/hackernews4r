@@ -12,4 +12,3 @@ serialize_story(story)
 \description{
 This function is responsible for serializing the story to a string
 }
-

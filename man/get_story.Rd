@@ -18,4 +18,3 @@ This function returns the story given it's story id
 get_story(12508356)
 get_story(12508356, pretty_print = TRUE)
 }
-
